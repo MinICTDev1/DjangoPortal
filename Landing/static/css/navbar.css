@@ -20,7 +20,7 @@
     width: 49%;
 }
 #login-dp .form-group {
-    margin-bottom: 10px;
+    margin-bottom: 0;
 }
 
 @media(max-width:768px){

@@ -11,3 +11,5 @@ def index(request):
 def base(request):
     return render(request, 'Landing/base.html')
 
+def about(request):
+    return render(request, 'Landing/about.html')
