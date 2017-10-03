@@ -13,3 +13,6 @@ def base(request):
 
 def about(request):
     return render(request, 'Landing/about.html')
+
+def submission(request):
+    return render(request, 'Landing/submission.html')

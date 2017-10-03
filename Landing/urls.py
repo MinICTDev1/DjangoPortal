@@ -8,4 +8,6 @@ urlpatterns = [
     url(r'^base/$', views.base, name='base'),
     # ex /landing/about
     url(r'^about/$', views.about, name='about'),
+    
+    url(r'^submission/$', views.submission, name='submission'),
 ]
