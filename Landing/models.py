@@ -192,3 +192,17 @@ class Submision(models.Model):
     def HowMultiCultural(self):
         return self.MultiCultural
 
+class member(models.Model):
+    first_name = models.CharField(max_length=100)
+    last_name = models.CharField(max_length=100)
+    email = models.CharField(max_length=100)
+    phone_number = models.CharField(max_length=100)
+
+    def __str__(self):
+        return '{}  {}'.format(self.first_name, self.last_name)
+
+    def getemail(self):
+        return self.email
+
+    def getphonenumber(self):
+        return str(self.phone_number)
