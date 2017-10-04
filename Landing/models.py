@@ -43,13 +43,19 @@ class Submision(models.Model):
         (TEASER,'Teaser Marketing'),
         (FULL,'Full Development'),
     )
+    individual_Name = models.CharField(max_length=100)
+    gender = models.CharField(max_length=100)
+    individualBD = models.DateField(default='')
+    current_address = models.CharField(max_length=100)
+    phone_number = models.CharField(max_length=100)
+    email = models.CharField(max_length=100)
     title = models.CharField(max_length=100)
     probelemStatement = models.CharField(max_length=200)
     background = models.CharField(max_length=200)
     concept = models.CharField(max_length=20)
     ownership = models.CharField(max_length=200, choices=Ownership_choice, default="")
     company_regDate = models.DateField(default='')
-    individualBD = models.DateField(default='')
+    
     individual_NIN = models.CharField(max_length=14)
     BusinessPlan = models.CharField(max_length=255)
     FeasibilityStudy = models.CharField(max_length=3, choices=Yay_Nay, default="")
@@ -75,6 +81,17 @@ class Submision(models.Model):
     Locations = models.CharField(max_length=255)
     Sustainability = models.CharField(max_length=255)
     MultiCultural = models.CharField(max_length=255)
+
+    def getindividual_Name(self):
+        return self.individual_Name
+    def getgender(self):
+        return self.gender
+    def getcurrent_address(self):
+        return self.current_address
+    def getphone_number(self):
+        return self.phone_number
+    def getemail(self):
+        return self.email
 
     def whichtitle(self):
         '''Method to return the innovation title '''
@@ -175,7 +192,3 @@ class Submision(models.Model):
     def HowMultiCultural(self):
         return self.MultiCultural
 
-class submissionForm(ModelForm):
-    class Meta:
-        model = Submision
-        fields = '__all__'

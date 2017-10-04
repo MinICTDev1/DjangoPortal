@@ -10,4 +10,6 @@ urlpatterns = [
     url(r'^about/$', views.about, name='about'),
     
     url(r'^submission/$', views.submission, name='submission'),
+    
+    url(r'^submit/$', views.submit, name='submit'),
 ]
