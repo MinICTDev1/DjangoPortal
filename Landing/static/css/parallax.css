@@ -1,7 +1,6 @@
 .parallax {
     /* The image used */
-    background-image: url("/static/images/frugal-innovation-2000x1200.png");
-
+    background-image: url("/static/images/background.jpg");
     /* Set a specific height */
     min-height: 500px; 
 
@@ -10,7 +9,9 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    opacity: 0.6;
 }
+
 
 .brief {
     color: #777;
@@ -24,9 +25,9 @@
     position: relative; 
     width: 100%; /* for IE 6 */
     margin: 0 auto;
- }
+}
  
- h1 span {
+h1 span {
     color: white;
     font: bold 45px/45px Helvetica, Sans-Serif;
     padding: 10px;
@@ -38,10 +39,10 @@
     left: 0; 
     width: 100%;
     margin: 0 auto; 
- }
+}
 
  /* Timeline css features */
- .timeline {
+.timeline {
     list-style: none;
     padding: 20px 0 20px;
     position: relative;
