@@ -8,18 +8,23 @@ from .forms import submissionForm
 
 # Create your views here.
 def index(request):
+    '''View defining the landing page of our application'''
     return render(request, 'Landing/index.html')
 
 def base(request):
+    ''' View defining the base template of our application'''
     return render(request, 'Landing/base.html')
 
 def about(request):
+    '''View defining the about page of our application.'''
     return render(request, 'Landing/about.html')
 
 def submission(request):
+    ''' View defining the submission page of the application'''
     return render(request, 'Landing/submission.html')
 
 def submit(request):
+    ''' View defining the actual submit page of the application'''
     if request.method == "POST":
         form = submissionForm(request.POST)
         if form.is_valid():

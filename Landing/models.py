@@ -206,3 +206,79 @@ class member(models.Model):
 
     def getphonenumber(self):
         return str(self.phone_number)
+
+class vote(models.Model):
+    PROBLEM = 'What problem Does the innovation seek to address?'
+    WHY = 'Why this Innovation? Do simillar Products exist?'
+    NEW = 'Is it a new concept or an existing one? If new? Have you applied for any Intellectual property rights'
+    INDIVIDUAL = 'Is the innovation done by an individual or a company'
+    BUSINESSPLAN = 'Summary of Business Plan'
+    FEASIBILITY = 'Was any technical or economic feasilbity carried out?'
+    PLAN = 'How do you plan to develop after Innovation?'
+    COSTS = 'How do you plan to develop the product after innovation'
+    INNOSTAGE = 'concept stage; design stage; invovation development ; product development; alpha / beta testing; production testing; teaser marketing;or full development'
+    FINANCES = 'Finances already invested in the product'
+    MARKETSTUDY = 'Was any market study/ customer feedback or market research done? If so details?'
+    IMPROVE = 'How exactly does the innovation improves the lives of citizens?'
+    TARGETMKT = 'What is the Target Market?'
+    DESIGN2PRDN = 'Estimated time for design to production ? (If at design stage else time from that stage to production)'
+    INVOLVEMENT = 'Who is part of the design prototyping, implementing, monitoring and evaluating?'
+    PROGRESS = 'How will the progress be monitored to obtain quick feedback to further spur development?'
+    POTENTIAL = 'Have you identified potential locations or use ICT ministrys site for devlopment?'
+    FINANCE = 'How will you intend to raise finance and how the same be utilised?'
+    SCALABILITY = 'How do you plan to scale upwards  and outwards and how will this scaling be sustainable?'
+    BOUNDARIES = 'is your product able to meet demands/needs outside the boundaries of uganda and if so, where?'
+    PROBLEMS = 'Detail potential problems youll face, the Impacts and remedies to said problems?'
+    SAFETY = 'Identify any safety issues for the end users  while using the innovation product?'
+
+    Question_Voted = (
+        (PROBLEM, 'Problem'),
+        (WHY, 'Why'),
+        (NEW, 'New'),
+        (INDIVIDUAL, 'Individual'),
+        (BUSINESSPLAN, 'Business Plan'),
+        (FEASIBILITY, 'Feasibility'),
+        (PLAN, 'Plan'),
+        (COSTS, 'Costs'),
+        (INNOSTAGE, 'Innovation Stage'),
+        (FINANCES, 'Finances'),
+        (MARKETSTUDY, 'MarketStudy'),
+        (IMPROVE, 'Improve'),
+        (TARGETMKT, 'Target Market'),
+        (DESIGN2PRDN, 'Design to Production'),
+        (INVOLVEMENT, 'Involved'),
+        (PROGRESS, 'Progress'),
+        (POTENTIAL, 'Potential Locations'),
+        (FINANCE, 'Raise Finance'),
+        (SCALABILITY, 'Scalability'),
+        (BOUNDARIES, 'Beyond Uganda'),
+        (PROBLEMS, 'Problems'),
+        (SAFETY, 'Safety'),
+    )
+
+    ONE = 1
+    TWO = 2
+    THREE = 3
+    FOUR = 4
+    FIVE = 5
+    SIX = 6
+    SEVEN = 7
+    EIGHT = 8
+    NINE = 9
+    TEN = 10
+    Question_Vote = (
+        (ONE, 'One'),
+        (TWO, 'Two'),
+        (THREE, 'Three'),
+        (FOUR, 'Four'),
+        (FIVE, 'Five'),
+        (SIX, 'Six'),
+        (SEVEN, 'Seven'),
+        (EIGHT, 'Eight'),
+        (NINE, 'Nine'),
+        (TEN, 'Ten'),
+    )
+    mem_who_voted = models.ForeignKey('member', related_name="Member", on_delete=models.CASCADE)
+    innovation_voted = models.ForeignKey('Submision', related_name="Innovation", on_delete=models.CASCADE)
+    field_voted = models.CharField(max_length=255, choices=Question_Voted, default='which')
+    Vote_given = models.CharField(max_length=255, choices=Question_Vote, default="")
