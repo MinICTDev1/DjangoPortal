@@ -6,7 +6,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Innovation Portal</title>
+    <link rel="shortcut icon" type="image/png" href="../../static/favicon/favicon.ico"/>
     <!-- font awesome css -->
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
@@ -38,9 +39,9 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li><a href="#">About Us</a></li>
+                    <li><a href="{% url 'about' %}">About Us</a></li>
                     <li><a href="#">Innovation</a></li>
-                    <li><a href="#">Submission</a></li>
+                    <li><a href="{% url 'submit' %}">Submission</a></li>
                     
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
