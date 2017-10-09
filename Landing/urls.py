@@ -14,4 +14,5 @@ urlpatterns = [
     url(r'^submit/$', views.submit, name='submit'),
     url(r'^contact/$', views.contact, name='contact'),
     url(r'^memberbase/$', views.sidebase, name='member'),
+    url(r'^test/$', views.test, name='test'),
 ]

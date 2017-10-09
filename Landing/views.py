@@ -4,10 +4,11 @@ from __future__ import unicode_literals
 from django.core.mail import EmailMessage
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from .forms import submissionForm, ContactForm
+from .forms import submissionForm, ContactForm, PostForm
 from django.template import Context
 from django.template.loader import get_template
 from .models import Submision
+from django.utils import timezone
 
 
 # Create your views here.
@@ -113,3 +114,22 @@ def contact(request):
             return redirect('contact')
 
     return render(request, 'Landing/contact.html', {'form': form_class})
+
+def test(request):
+    # form = PostForm()
+    # return render(request, 'Landing/testing.html', {'form': form})
+
+    # form = PostForm()
+    # return render(request, 'blog/post_edit.html', {'form': form})
+
+    if request.method == "POST":
+        form = PostForm(request.POST)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.author = request.user
+            post.published_date = timezone.now()
+            post.save()
+            return redirect('test')
+    else:
+        form = PostForm()
+    return render(request, 'Landing/test.html', {'form': form})

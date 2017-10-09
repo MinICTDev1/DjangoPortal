@@ -3,6 +3,7 @@ from __future__ import unicode_literals
 
 from django.db import models
 from django.forms import ModelForm
+from django.utils import timezone
 
 # Create your models here.
 
@@ -282,3 +283,19 @@ class vote(models.Model):
     innovation_voted = models.ForeignKey('Submision', related_name="Innovation", on_delete=models.CASCADE)
     field_voted = models.CharField(max_length=255, choices=Question_Voted, default='which')
     Vote_given = models.CharField(max_length=255, choices=Question_Vote, default="")
+
+class FormTest(models.Model):
+    author = models.ForeignKey('auth.User')
+    title = models.CharField(max_length=200)
+    text = models.TextField()
+    created_date = models.DateTimeField(
+            default=timezone.now)
+    published_date = models.DateTimeField(
+            blank=True, null=True)
+
+    def publish(self):
+        self.published_date = timezone.now()
+        self.save()
+
+    def __str__(self):
+        return self.title

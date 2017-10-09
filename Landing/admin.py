@@ -4,8 +4,8 @@ from __future__ import unicode_literals
 from django.contrib import admin
 
 # Register your models here.
-from .models import Submision, member, vote
+from .models import Submision, member, vote, FormTest
 
-@admin.register(Submision, member, vote)
+@admin.register(Submision, member, vote, FormTest)
 class LandingAdmin(admin.ModelAdmin):
     pass

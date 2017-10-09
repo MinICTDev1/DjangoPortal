@@ -1,6 +1,6 @@
 from django import forms
 
-from .models import Submision
+from .models import Submision, FormTest
 
 class submissionForm(forms.ModelForm):
     class Meta:
@@ -15,3 +15,8 @@ class ContactForm(forms.Form):
         widget=forms.Textarea
     )
     
+class PostForm(forms.ModelForm):
+
+    class Meta:
+        model = FormTest
+        fields = ('title', 'text',)
