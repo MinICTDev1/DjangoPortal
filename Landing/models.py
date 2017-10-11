@@ -13,9 +13,13 @@ class Submision(models.Model):
 
     '''
     INDIVIDUAL = 'IN'
+    TEAM = 'TO'
     COMPANY = 'CO'
+    HUB = 'HU'
     Ownership_choice = (
         (INDIVIDUAL,'Individual'),
+        (TEAM,'Team'),
+        (HUB, 'Hub'),
         (COMPANY,'Company'),
     )
 
@@ -51,7 +55,7 @@ class Submision(models.Model):
     phone_number = models.CharField(max_length=100)
     email = models.CharField(max_length=100)
     title = models.CharField(max_length=100)
-    probelemStatement = models.CharField(max_length=200)
+    probelemStatement = models.CharField(max_length=200, verbose_name="Problem Statement")
     background = models.CharField(max_length=200)
     concept = models.CharField(max_length=20)
     ownership = models.CharField(max_length=200, choices=Ownership_choice, default="")

@@ -4,7 +4,7 @@ from __future__ import unicode_literals
 from django.core.mail import EmailMessage
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from .forms import submissionForm, ContactForm, PostForm, SimpleForm
+from .forms import submissionForm
 from django.template import Context
 from django.template.loader import get_template
 from .models import Submision
@@ -26,7 +26,7 @@ def about(request):
 
 def submission(request):
     ''' View defining the submission page of the application'''
-    return render(request, 'Landing/submission.html', {'form': SimpleForm()})
+    return render(request, 'Landing/submission.html', {'form': submissionForm()})
 
 def sidebase(request):
     return render(request, 'Landing/memberbase.html')
