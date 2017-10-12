@@ -93,7 +93,7 @@ class Submision(models.Model):
     Market_Study = models.CharField(max_length=14, choices=Yay_Nay,
                                     default="", verbose_name=
                                     'Did you carry out any market study/Customer feedback or market research?')
-    Market_Std_Descrip = models.TextField(max_length=255, blank=True)
+    Market_Std_Descrip = models.TextField(max_length=255, blank=True, verbose_name='If yes, provide details.')
     Market_STd_file = models.FileField(upload_to='uploads/mkt_study/%Y/%m/%d/', blank=True,
                                        verbose_name='Please upload the findings of your study')
     Market = models.TextField(max_length=255)

@@ -4,7 +4,7 @@ from .models import Submision, FormTest
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Submit, Layout, Field, Div, Button
 from crispy_forms.bootstrap import (
-    PrependedText, PrependedAppendedText, FormActions, TabHolder, Tab)
+    PrependedText, PrependedAppendedText, FormActions, TabHolder, Tab, InlineRadios)
 
 class submissionForm(forms.ModelForm):
     '''Form to do with submission of proposals'''
@@ -26,25 +26,45 @@ class submissionForm(forms.ModelForm):
                 Div(
                     Div('current_address', css_class='col-xs-6'),
                     Div('phone_number', css_class='col-xs-6'),
-                    css_class='row-fluid'),),
+                    css_class='row-fluid'),
+                Button('Next', 'Next', css_class="btnNext"),
+               ),
             Tab('Introduction',
                 'title',
                 'probelemStatement',
                 'background',
-                'concept'),
+                'concept',
+                Button('Previous', 'Previous', css_class="btnPrevious"),
+                Button('Next', 'Next', css_class="btnNext")
+               ),
             Tab('Owner',
-                'ownership'),
+                InlineRadios('ownership'),
+                Button('Previous', 'Previous', css_class="btnPrevious"),
+                Button('Next', 'Next', css_class="btnNext")
+               ),
             Tab('Individual',
                 'individualBD',
-                'individual_NIN'),
+                'individual_NIN',
+                Button('Previous', 'Previous', css_class="btnPrevious"),
+                Button('Next', 'Next', css_class="btnNext")
+               ),
             Tab('Team',
                 'teamName',
-                'Commncementdate'),
+                'Commncementdate',
+                Button('Previous', 'Previous', css_class="btnPrevious"),
+                Button('Next', 'Next', css_class="btnNext")
+               ),
             Tab('Company',
-                'company_regDate'),
+                'company_regDate',
+                Button('Previous', 'Previous', css_class="btnPrevious"),
+                Button('Next', 'Next', css_class="btnNext")
+               ),
             Tab('Hub',
                 'hubName',
-                'duration'),
+                'duration',
+                Button('Previous', 'Previous', css_class="btnPrevious"),
+                Button('Next', 'Next', css_class="btnNext")
+               ),
             Tab('Details',
                 Div(
                     Div('BusinessPlan', css_class='col-xs-12'),
@@ -64,34 +84,56 @@ class submissionForm(forms.ModelForm):
                     Div('Stage_Description', css_class='col-xs-8'),
                     css_class='row-fluid'),
                 Div(
-                    Div('Amount_invested', css_class='col-xs-4'),
+                    Div('Amount_invested', css_class='col-xs-10'),
                     css_class='row-fluid'),
                 Div(
-                    Div('Market_Study', css_class='col-xs-10'),
+                    Div(InlineRadios('Market_Study'), css_class='col-xs-10'),
                     css_class='row-fluid'),
-                'Market_Std_Descrip',
-                'Market_STd_file',
-                'Market',
-                'Value_Added',
-                'Time_to_product',
-                'End_User_Invol',
-                'Monitoring',
-                'Fund_Raise',
-                ),
+                Div(
+                    Div('Market_Std_Descrip', css_class='col-xs-8'),
+                    Div('Market_STd_file', css_class='col-xs-4'),
+                    css_class='row-fluid'),
+                Div(
+                    Div('Market', css_class='col-xs-8'),
+                    Div('Value_Added', css_class='col-xs-4'),
+                    css_class='row-fluid'),
+                Div(
+                    Div('Time_to_product', css_class='col-xs-12'),
+                    css_class='row-fluid'),
+                Div(
+                    Div('End_User_Invol', css_class='col-xs-12'),
+                    css_class='row-fluid'),
+                Div(
+                    Div('Monitoring', css_class='col-xs-12'),
+                    css_class='row-fluid'),
+                Div(
+                    Div('Fund_Raise', css_class='col-xs-12'),
+                    css_class='row-fluid'),
+                Button('Previous', 'Previous', css_class="btnPrevious"),
+                Button('Next', 'Next', css_class="btnNext")
+               ),
             Tab('Problems',
                 'Problems',
                 'Impacts',
-                'Remedies'),
+                'Remedies',
+                Button('Previous', 'Previous', css_class="btnPrevious"),
+                Button('Next', 'Next', css_class="btnNext")
+               ),
             Tab('Safety',
-                'Safety'),
+                'Safety',
+                Button('Previous', 'Previous', css_class="btnPrevious"),
+                Button('Next', 'Next', css_class="btnNext")
+               ),
             Tab('Future',
                 'Locations',
                 'Sustainability',
                 'MultiCultural',
-                ),
+                Button('Previous', 'Previous', css_class="btnPrevious"),
+                Submit('Submit', 'Submit', css_class='btn-primary')
+                
+               ),
             )
     )
-    helper.add_input(Submit('Submit', 'Submit', css_class='btn-primary'))
 
 
 class ContactForm(forms.Form):
