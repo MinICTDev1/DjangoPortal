@@ -2,12 +2,14 @@ from django import forms
 from .models import Submision, FormTest
 
 from crispy_forms.helper import FormHelper
-from crispy_forms.layout import Submit, Layout, Field
+from crispy_forms.layout import Submit, Layout, Field, Div, Button
 from crispy_forms.bootstrap import (
     PrependedText, PrependedAppendedText, FormActions, TabHolder, Tab)
 
 class submissionForm(forms.ModelForm):
+    '''Form to do with submission of proposals'''
     class Meta:
+        '''Meta describing whihc model the class is being loaded from'''
         model = Submision
         fields = '__all__'
 
@@ -15,40 +17,81 @@ class submissionForm(forms.ModelForm):
     helper.form_method = 'POST'
     helper.layout = Layout(
         TabHolder(
-            Tab('1',
-                'individual_Name',
-                'gender',
-                'email',
-                'current_address',
-                'phone_number'),
-            Tab('2',
+            Tab('Submitter',
+                Div(
+                    Div('individual_Name', css_class='col-xs-4'),
+                    Div('gender', css_class='col-xs-4'),
+                    Div('email', css_class='col-xs-4'),
+                    css_class='row-fluid'),
+                Div(
+                    Div('current_address', css_class='col-xs-6'),
+                    Div('phone_number', css_class='col-xs-6'),
+                    css_class='row-fluid'),),
+            Tab('Introduction',
                 'title',
                 'probelemStatement',
                 'background',
                 'concept'),
-            Tab('3',
+            Tab('Owner',
                 'ownership'),
             Tab('Individual',
-                ''),
+                'individualBD',
+                'individual_NIN'),
             Tab('Team',
-                'field_name_1'),
-            Tab('Hub',
-                ''),
+                'teamName',
+                'Commncementdate'),
             Tab('Company',
-                'field_name_1'),
-            Tab('8',
-                'sedond_tab'),
-            Tab('9',
-                'sedond_tab'),
-            Tab('10',
-                'sedond_tab'),
-            Tab('11',
-                'sedond_tab'),
+                'company_regDate'),
+            Tab('Hub',
+                'hubName',
+                'duration'),
+            Tab('Details',
+                Div(
+                    Div('BusinessPlan', css_class='col-xs-12'),
+                    css_class='row-fluid'),
+                Div(
+                    Div('FeasibilityStudy', css_class='col-xs-6'),
+                    Div('StudyUpload', css_class='col-xs-6'),
+                    css_class='row-fluid'),
+                Div(
+                    Div('ActionStatement', css_class='col-xs-12'),
+                    css_class='row-fluid'),
+                Div(
+                    Div('EstimatedCost', css_class='col-xs-12'),
+                    css_class='row-fluid'),
+                Div(
+                    Div('InnovationStage', css_class='col-xs-4'),
+                    Div('Stage_Description', css_class='col-xs-8'),
+                    css_class='row-fluid'),
+                Div(
+                    Div('Amount_invested', css_class='col-xs-4'),
+                    css_class='row-fluid'),
+                Div(
+                    Div('Market_Study', css_class='col-xs-10'),
+                    css_class='row-fluid'),
+                'Market_Std_Descrip',
+                'Market_STd_file',
+                'Market',
+                'Value_Added',
+                'Time_to_product',
+                'End_User_Invol',
+                'Monitoring',
+                'Fund_Raise',
+                ),
+            Tab('Problems',
+                'Problems',
+                'Impacts',
+                'Remedies'),
+            Tab('Safety',
+                'Safety'),
+            Tab('Future',
+                'Locations',
+                'Sustainability',
+                'MultiCultural',
+                ),
             )
     )
     helper.add_input(Submit('Submit', 'Submit', css_class='btn-primary'))
-
-    
 
 
 class ContactForm(forms.Form):

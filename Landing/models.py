@@ -17,17 +17,17 @@ class Submision(models.Model):
     COMPANY = 'CO'
     HUB = 'HU'
     Ownership_choice = (
-        (INDIVIDUAL,'Individual'),
-        (TEAM,'Team'),
+        (INDIVIDUAL, 'Individual'),
+        (TEAM, 'Team'),
         (HUB, 'Hub'),
-        (COMPANY,'Company'),
+        (COMPANY, 'Company'),
     )
 
     YES = 'Y'
     NAY = 'N'
     Yay_Nay = (
-        (YES,'Yes'),
-        (NAY,'No'),
+        (YES, 'Yes'),
+        (NAY, 'No'),
     )
 
     CONCEPT = 'CON'
@@ -39,53 +39,86 @@ class Submision(models.Model):
     TEASER = 'TEA'
     FULL = 'FLD'
     Innovation_stage = (
-        (CONCEPT,'Concept'),
-        (DESIGN,'Design'),
-        (INNOVAION,'Innovation'),
-        (PRODUCT,'Product'),
-        (ALPHAORBEAT,'Alpha/Beta testing'),
-        (PRODUCTION,'Production testing'),
-        (TEASER,'Teaser Marketing'),
-        (FULL,'Full Development'),
+        (CONCEPT, 'Concept'),
+        (DESIGN, 'Design'),
+        (INNOVAION, 'Innovation'),
+        (PRODUCT, 'Product'),
+        (ALPHAORBEAT, 'Alpha/Beta testing'),
+        (PRODUCTION, 'Production testing'),
+        (TEASER, 'Teaser Marketing'),
+        (FULL, 'Full Development'),
     )
+    #Submitter details
     individual_Name = models.CharField(max_length=100)
     gender = models.CharField(max_length=100)
-    individualBD = models.DateField(default='')
     current_address = models.CharField(max_length=100)
     phone_number = models.CharField(max_length=100)
     email = models.CharField(max_length=100)
+
+    #Innovation introduction
     title = models.CharField(max_length=100)
-    probelemStatement = models.CharField(max_length=200, verbose_name="Problem Statement")
-    background = models.CharField(max_length=200)
-    concept = models.CharField(max_length=20)
+    probelemStatement = models.TextField(max_length=200, verbose_name="Problem Statement")
+    background = models.TextField(max_length=200)
+    concept = models.TextField(max_length=20)
+
+    #ownership details
     ownership = models.CharField(max_length=200, choices=Ownership_choice, default="")
-    company_regDate = models.DateField(default='')
-    
-    individual_NIN = models.CharField(max_length=14)
-    BusinessPlan = models.CharField(max_length=255)
-    FeasibilityStudy = models.CharField(max_length=3, choices=Yay_Nay, default="")
-    StudyUpload = models.FileField(upload_to='uploads/feasibility/%Y/%m/%d/')
-    ActionStatement = models.CharField(max_length=255)
+    #Company Details
+    company_regDate = models.DateField(default='',verbose_name="Company registration date")
+    #Individual Details
+    individualBD = models.DateField(default='', verbose_name="Individual Date of birth")
+    individual_NIN = models.CharField(max_length=14, verbose_name="NIN Number")
+    #Team Details
+    teamName = models.CharField(default='', max_length=40, verbose_name="Name of your team")
+    Commncementdate = models.DateField(default='', verbose_name="Date of team inception")
+    #Hub Details
+    hubName = models.CharField(default='', max_length=40, verbose_name=
+                               "Name of the hub you reside in?")
+    duration = models.DateField(default='', verbose_name="Duration within the hub")
+
+    #innovation details
+    BusinessPlan = models.TextField(max_length=255, verbose_name="Summary of business plan")
+    FeasibilityStudy = models.CharField(max_length=3, choices=Yay_Nay, default="", verbose_name=
+                                        "Was any technical/economic feasibility study carried out")
+    StudyUpload = models.FileField(upload_to='uploads/feasibility/%Y/%m/%d/', blank=True,
+                                   verbose_name="If yes, please attach the findings of this study")
+    ActionStatement = models.TextField(max_length=255, verbose_name=
+                                       "How do you plan to develop the product after innovation?")
     EstimatedCost = models.IntegerField()
-    Innov_Stage = models.CharField(max_length=100, choices=Innovation_stage, default="")
-    Stage_Description = models.CharField(max_length=255)
-    Amount_invested = models.IntegerField()
-    Market_Study = models.CharField(max_length=14, choices=Yay_Nay, default="")
-    Market_Std_Descrip = models.CharField(max_length=255)
-    Market_STd_file = models.FileField(upload_to='uploads/mkt_study/%Y/%m/%d/')
-    Market = models.CharField(max_length=255)
-    Value_Added = models.CharField(max_length=255)
-    Time_to_product = models.CharField(max_length=255)
-    End_User_Invol = models.CharField(max_length=255)
-    Monitoring = models.CharField(max_length=255)
-    Fund_Raise = models.CharField(max_length=500)
-    Problems = models.CharField(max_length=300)
-    Impacts = models.CharField(max_length=300)
-    Remedies = models.CharField(max_length=255)
-    Safety = models.CharField(max_length=255)
-    Locations = models.CharField(max_length=255)
-    Sustainability = models.CharField(max_length=255)
-    MultiCultural = models.CharField(max_length=255)
+    InnovationStage = models.CharField(default="", max_length=100, choices=Innovation_stage,
+                                       verbose_name="What is the current phase of innoation")
+    Stage_Description = models.TextField(max_length=255, verbose_name=
+                                         "Describe the current stage of innovation")
+    Amount_invested = models.IntegerField(verbose_name='Amount Invested to date')
+    Market_Study = models.CharField(max_length=14, choices=Yay_Nay,
+                                    default="", verbose_name=
+                                    'Did you carry out any market study/Customer feedback or market research?')
+    Market_Std_Descrip = models.TextField(max_length=255, blank=True)
+    Market_STd_file = models.FileField(upload_to='uploads/mkt_study/%Y/%m/%d/', blank=True,
+                                       verbose_name='Please upload the findings of your study')
+    Market = models.TextField(max_length=255)
+    Value_Added = models.TextField(max_length=255, verbose_name=
+                                   "How does it improve citizen's lives")
+    Time_to_product = models.TextField(max_length=255, verbose_name=
+                                       "What is the estimated time from design to production")
+    End_User_Invol = models.TextField(max_length=255, verbose_name='End User Involvement')
+    Monitoring = models.TextField(max_length=255, verbose_name=
+                                  'How will the progress be monitored to obtain quick feedback to spur development?')
+    Fund_Raise = models.TextField(max_length=500, verbose_name=
+                                  'How do you intend to raise funds and utilise them?')
+
+    #Problems tab
+    Problems = models.TextField(max_length=300)
+    Impacts = models.TextField(max_length=300)
+    Remedies = models.TextField(max_length=255)
+
+    #Safety Tab
+    Safety = models.TextField(max_length=255)
+
+    #Future tab
+    Locations = models.TextField(max_length=255)
+    Sustainability = models.TextField(max_length=255)
+    MultiCultural = models.TextField(max_length=255)
 
     def getindividual_Name(self):
         return self.individual_Name
