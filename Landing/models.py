@@ -66,7 +66,7 @@ class Submision(models.Model):
     #Company Details
     company_regDate = models.DateTimeField(default=timezone.now, verbose_name="Company registration date")
     #Individual Details
-    individualBD = models.DateTimeField(default=timezone.now, verbose_name="Individual Date of birth")
+    individualBD = models.DateField(default=timezone.now, verbose_name="Individual Date of birth")
     individual_NIN = models.CharField(max_length=14, verbose_name="NIN Number")
     #Team Details
     teamName = models.CharField(default='', max_length=40, verbose_name="Name of your team")

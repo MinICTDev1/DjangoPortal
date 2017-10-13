@@ -43,7 +43,7 @@ class submissionForm(forms.ModelForm):
                 Button('Next', 'Next', css_class="btnNext")
                ),
             Tab('Individual',
-                'individualBD',
+                Field('individualBD', template='Landing/date.html'),
                 'individual_NIN',
                 Button('Previous', 'Previous', css_class="btnPrevious"),
                 Button('Next', 'Next', css_class="btnNext")
