@@ -26,6 +26,12 @@ def about(request):
 
 def submission(request):
     ''' View defining the submission page of the application'''
+    if request.method == "POST":
+        form = submissionForm(request.POST)
+        if form.is_valid():
+            form.save()
+    else:
+            form = submissionForm()
     return render(request, 'Landing/submission.html', {'form': submissionForm()})
 
 def sidebase(request):

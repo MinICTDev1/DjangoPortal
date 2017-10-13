@@ -64,17 +64,17 @@ class Submision(models.Model):
     #ownership details
     ownership = models.CharField(max_length=200, choices=Ownership_choice, default="")
     #Company Details
-    company_regDate = models.DateField(default='',verbose_name="Company registration date")
+    company_regDate = models.DateTimeField(default=timezone.now, verbose_name="Company registration date")
     #Individual Details
-    individualBD = models.DateField(default='', verbose_name="Individual Date of birth")
+    individualBD = models.DateTimeField(default=timezone.now, verbose_name="Individual Date of birth")
     individual_NIN = models.CharField(max_length=14, verbose_name="NIN Number")
     #Team Details
     teamName = models.CharField(default='', max_length=40, verbose_name="Name of your team")
-    Commncementdate = models.DateField(default='', verbose_name="Date of team inception")
+    Commncementdate = models.DateTimeField(default=timezone.now, verbose_name="Date of team inception")
     #Hub Details
-    hubName = models.CharField(default='', max_length=40, verbose_name=
+    hubName = models.CharField(default='',max_length=40, verbose_name=
                                "Name of the hub you reside in?")
-    duration = models.DateField(default='', verbose_name="Duration within the hub")
+    duration = models.DateTimeField(default=timezone.now, verbose_name="Duration within the hub")
 
     #innovation details
     BusinessPlan = models.TextField(max_length=255, verbose_name="Summary of business plan")
