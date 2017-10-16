@@ -42,12 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'crispy_forms',
     'bootstrap3_datetime',
-    'djangobower',
 ]
-
-BOWER_INSTALLED_APPS = (
-   
-)
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -128,13 +123,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
-
-BOWER_COMPONENTS_ROOT = os.path.join(BASE_DIR, 'components')
-
-STATICFILES_FINDERS = (
-    'djangobower.finders.BowerFinder',
-)
-
 
 # Email settings go here
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
