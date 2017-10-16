@@ -12,6 +12,13 @@ class submissionForm(forms.ModelForm):
         '''Meta describing whihc model the class is being loaded from'''
         model = Submision
         fields = '__all__'
+        widgets = {'individualBD': forms.DateInput(attrs={'id': 'datetimepicker4'}),
+                   'Commncementdate': forms.DateInput(attrs={'id': 'datetimepicker4'}),
+                   'company_regDate': forms.DateInput(attrs={'id': 'datetimepicker4'}),
+        
+        
+        
+                }
 
     helper = FormHelper()
     helper.form_method = 'POST'
@@ -38,30 +45,30 @@ class submissionForm(forms.ModelForm):
                 Button('Next', 'Next', css_class="btnNext")
                ),
             Tab('Owner',
-                InlineRadios('ownership'),
-                Button('Previous', 'Previous', css_class="btnPrevious"),
-                Button('Next', 'Next', css_class="btnNext")
-               ),
-            Tab('Individual',
-                'individualBD',
-                'individual_NIN',
-                Button('Previous', 'Previous', css_class="btnPrevious"),
-                Button('Next', 'Next', css_class="btnNext")
-               ),
-            Tab('Team',
-                'teamName',
-                'Commncementdate',
-                Button('Previous', 'Previous', css_class="btnPrevious"),
-                Button('Next', 'Next', css_class="btnNext")
-               ),
-            Tab('Company',
-                'company_regDate',
-                Button('Previous', 'Previous', css_class="btnPrevious"),
-                Button('Next', 'Next', css_class="btnNext")
-               ),
-            Tab('Hub',
-                'hubName',
-                'duration',
+                InlineRadios('ownership', id="radio_id"),
+                # individual div
+                Div(
+                    Div('individual_NIN', css_class='col-xs-6'),
+                    Div('individualBD', css_class='col-xs-6'),
+                    css_class='row_fluid', css_id="id_ownership_1 box"),
+
+                #Team Div
+                Div(
+                    Div('teamName', css_class='col-xs-6'),
+                    Div('Commncementdate', css_class='col-xs-6'),
+                    css_class='row_fluid'),
+
+                # Company div
+                Div(
+                    Div('company_regDate', css_class='col-xs-12'),
+                    css_class='row_fluid'),
+
+                #Hub div
+                Div(
+                    Div('hubName', css_class='col-xs-6'),
+                    Div('duration', css_class='col-xs-6'),
+                    css_class='row_fluid'),
+
                 Button('Previous', 'Previous', css_class="btnPrevious"),
                 Button('Next', 'Next', css_class="btnNext")
                ),
