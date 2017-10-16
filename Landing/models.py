@@ -4,6 +4,7 @@ from __future__ import unicode_literals
 from django.db import models
 from django.forms import ModelForm
 from django.utils import timezone
+import datetime
 
 # Create your models here.
 
@@ -64,15 +65,17 @@ class Submision(models.Model):
     #ownership details
     ownership = models.CharField(max_length=200, choices=Ownership_choice, default="")
     #Company Details
-    company_regDate = models.DateTimeField(default=timezone.now, verbose_name="Company registration date")
+    company_regDate = models.DateTimeField(default=timezone.now,
+                                           verbose_name="Company registration date")
     #Individual Details
     individualBD = models.DateField(default=timezone.now, verbose_name="Individual Date of birth")
     individual_NIN = models.CharField(max_length=14, verbose_name="NIN Number")
     #Team Details
     teamName = models.CharField(default='', max_length=40, verbose_name="Name of your team")
-    Commncementdate = models.DateTimeField(default=timezone.now, verbose_name="Date of team inception")
+    Commncementdate = models.DateTimeField(default=timezone.now,
+                                           verbose_name="Date of team inception")
     #Hub Details
-    hubName = models.CharField(default='',max_length=40, verbose_name=
+    hubName = models.CharField(default='', max_length=40, verbose_name=
                                "Name of the hub you reside in?")
     duration = models.DateTimeField(default=timezone.now, verbose_name="Duration within the hub")
 
@@ -93,7 +96,8 @@ class Submision(models.Model):
     Market_Study = models.CharField(max_length=14, choices=Yay_Nay,
                                     default="", verbose_name=
                                     'Did you carry out any market study/Customer feedback or market research?')
-    Market_Std_Descrip = models.TextField(max_length=255, blank=True, verbose_name='If yes, provide details.')
+    Market_Std_Descrip = models.TextField(max_length=255, blank=True,
+                                          verbose_name='If yes, provide details.')
     Market_STd_file = models.FileField(upload_to='uploads/mkt_study/%Y/%m/%d/', blank=True,
                                        verbose_name='Please upload the findings of your study')
     Market = models.TextField(max_length=255)
