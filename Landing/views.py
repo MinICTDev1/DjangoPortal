@@ -31,10 +31,11 @@ def submission(request):
         if form.is_valid():
             form.save()
     else:
-            form = submissionForm()
+        form = submissionForm()
     return render(request, 'Landing/submission.html', {'form': submissionForm()})
 
 def sidebase(request):
+    '''View describing the base template for the admin view'''
     return render(request, 'Landing/memberbase.html')
 
 def submit(request):

@@ -12,13 +12,11 @@ class submissionForm(forms.ModelForm):
         '''Meta describing whihc model the class is being loaded from'''
         model = Submision
         fields = '__all__'
-        widgets = {'individualBD': forms.DateInput(attrs={'id': 'datetimepicker4'}),
-                   'Commncementdate': forms.DateInput(attrs={'id': 'datetimepicker4'}),
-                   'company_regDate': forms.DateInput(attrs={'id': 'datetimepicker4'}),
-        
-        
-        
-                }
+        widgets = {
+            'individualBD': forms.DateInput(attrs={'id': 'datetimepicker4'}),
+            'Commncementdate': forms.DateInput(attrs={'id': 'datetimepicker12'}),
+            'company_regDate': forms.DateInput(attrs={'id': 'datetimepicker4'}),
+            }
 
     helper = FormHelper()
     helper.form_method = 'POST'
@@ -137,7 +135,6 @@ class submissionForm(forms.ModelForm):
                 'MultiCultural',
                 Button('Previous', 'Previous', css_class="btnPrevious"),
                 Submit('Submit', 'Submit', css_class='btn-primary')
-                
                ),
             )
     )
