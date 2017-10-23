@@ -3,8 +3,7 @@ from .models import Submision, FormTest
 
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Submit, Layout, Field, Div, Button
-from crispy_forms.bootstrap import (
-    PrependedText, PrependedAppendedText, FormActions, TabHolder, Tab, InlineRadios)
+from crispy_forms.bootstrap import FormActions, TabHolder, Tab, InlineRadios
 
 class submissionForm(forms.ModelForm):
     '''Form to do with submission of proposals'''
@@ -134,7 +133,7 @@ class submissionForm(forms.ModelForm):
                 'Sustainability',
                 'MultiCultural',
                 Button('Previous', 'Previous', css_class="btnPrevious"),
-                Submit('Submit', 'Submit', css_class='btn-primary')
+                FormActions(Submit('Submit', 'Submit', css_class='btn-primary'))
                ),
             )
     )

@@ -124,6 +124,9 @@ class Submision(models.Model):
     Sustainability = models.TextField(max_length=255)
     MultiCultural = models.TextField(max_length=255)
 
+    def __str__(self):
+        return '{}  {}'.format(self.title, self.ownership)
+
     def getindividual_Name(self):
         return self.individual_Name
     def getgender(self):
