@@ -88,10 +88,10 @@ class submissionForm(forms.ModelForm):
                     Div('Stage_Description', css_class='col-xs-8'),
                     css_class='row-fluid'),
                 Div(
-                    Div('Amount_invested', css_class='col-xs-10'),
+                    Div('Amount_invested', css_class='col-xs-12'),
                     css_class='row-fluid'),
                 Div(
-                    Div(InlineRadios('Market_Study'), css_class='col-xs-10'),
+                    Div(InlineRadios('Market_Study'), css_class='col-xs-12'),
                     css_class='row-fluid'),
                 Div(
                     Div('Market_Std_Descrip', css_class='col-xs-8'),
@@ -113,6 +113,10 @@ class submissionForm(forms.ModelForm):
                 Div(
                     Div('Fund_Raise', css_class='col-xs-12'),
                     css_class='row-fluid'),
+                Div(
+                    Div(css_class='col-xs-12'),
+                    css_class='row_fluid'),
+
                 Button('Previous', 'Previous', css_class="btnPrevious"),
                 Button('Next', 'Next', css_class="btnNext")
                ),
@@ -133,7 +137,10 @@ class submissionForm(forms.ModelForm):
                 'Sustainability',
                 'MultiCultural',
                 Button('Previous', 'Previous', css_class="btnPrevious"),
-                FormActions(Submit('Submit', 'Submit', css_class='btn-primary'))
+                Div(
+                    Div(css_class='col-xs-4'),
+                    Div(FormActions(Submit('Submit', 'Submit', css_class='btn-primary'))),
+                    css_class='row-fluid'), 
                ),
             )
     )
