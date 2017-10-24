@@ -73,7 +73,7 @@ class Submision(models.Model):
     #Team Details
     teamName = models.CharField(default='', max_length=40, verbose_name="Name of your team")
     Commncementdate = models.DateField(default=timezone.now,
-                                           verbose_name="Date of team inception")
+                                       verbose_name="Date of team inception")
     #Hub Details
     hubName = models.CharField(default='', max_length=40, verbose_name=
                                "Name of the hub you reside in?")

@@ -76,7 +76,7 @@ class submissionForm(forms.ModelForm):
                 Div(
                     Div('FeasibilityStudy', css_class='col-xs-6'),
                     Div('StudyUpload', css_class='col-xs-6'),
-                    css_class='row-fluid'),
+                    css_class='row'),
                 Div(
                     Div('ActionStatement', css_class='col-xs-12'),
                     css_class='row-fluid'),
@@ -96,7 +96,7 @@ class submissionForm(forms.ModelForm):
                 Div(
                     Div('Market_Std_Descrip', css_class='col-xs-8'),
                     Div('Market_STd_file', css_class='col-xs-4'),
-                    css_class='row-fluid'),
+                    css_class='row'),
                 Div(
                     Div('Market', css_class='col-xs-8'),
                     Div('Value_Added', css_class='col-xs-4'),
