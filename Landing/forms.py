@@ -124,6 +124,7 @@ class submissionForm(forms.ModelForm):
                 'Problems',
                 'Impacts',
                 'Remedies',
+
                 Button('Previous', 'Previous', css_class="btnPrevious"),
                 Button('Next', 'Next', css_class="btnNext")
                ),
@@ -140,7 +141,7 @@ class submissionForm(forms.ModelForm):
                 Div(
                     Div(css_class='col-xs-4'),
                     Div(FormActions(Submit('Submit', 'Submit', css_class='btn-primary'))),
-                    css_class='row-fluid'), 
+                    css_class='row-fluid'),
                ),
             )
     )
@@ -153,7 +154,7 @@ class ContactForm(forms.Form):
         required=True,
         widget=forms.Textarea
     )
- 
+
 class PostForm(forms.ModelForm):
 
     class Meta:
@@ -206,3 +207,4 @@ class PostForm(forms.ModelForm):
 #         Field('notes', rows=3),
 #         FormActions(Submit('purchase', 'purchase', css_class='btn-primary'))
 #     )
+ 
