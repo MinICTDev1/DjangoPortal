@@ -47,24 +47,24 @@ class submissionForm(forms.ModelForm):
                 Div(
                     Div('individual_NIN', css_class='col-xs-6'),
                     Div('individualBD', css_class='col-xs-6'),
-                    css_class='row_fluid', css_id="id_ownership_1 box"),
+                    css_class="id_ownership_1_div", hidden="true"),
 
                 #Team Div
                 Div(
                     Div('teamName', css_class='col-xs-6'),
                     Div('Commncementdate', css_class='col-xs-6'),
-                    css_class='row_fluid'),
+                    css_class='id_ownership_2_div', hidden="true"),
 
                 # Company div
                 Div(
                     Div('company_regDate', css_class='col-xs-12'),
-                    css_class='row_fluid'),
+                    css_class='id_ownership_3_div', hidden="true"),
 
                 #Hub div
                 Div(
                     Div('hubName', css_class='col-xs-6'),
                     Div('duration', css_class='col-xs-6'),
-                    css_class='row_fluid'),
+                    css_class='id_ownership_4_div', hidden="true"),
 
                 Button('Previous', 'Previous', css_class="btnPrevious"),
                 Button('Next', 'Next', css_class="btnNext")
@@ -91,7 +91,7 @@ class submissionForm(forms.ModelForm):
                     Div('Amount_invested', css_class='col-xs-12'),
                     css_class='row-fluid'),
                 Div(
-                    Div(InlineRadios('Market_Study'), css_class='col-xs-12'),
+                    Div('Market_Study', css_class='col-xs-12'),
                     css_class='row-fluid'),
                 Div(
                     Div('Market_Std_Descrip', css_class='col-xs-8'),
